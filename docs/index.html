@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QBMS Suite Releases</title>
+  <title>AlphaVault QBMS Releases</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -53,6 +53,60 @@
       padding: 2rem 0;
     }
 
+    .logo-container {
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    .logo:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    .logo img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 12px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .logo-fallback {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      position: relative;
+    }
+
     .header h1 {
       font-size: 3.5rem;
       font-weight: 700;
@@ -61,14 +115,25 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 1rem;
-      animation: fadeInUp 1s ease-out;
+      animation: fadeInUp 1s ease-out 0.2s both;
     }
 
-    .header p {
+    .header .subtitle {
       font-size: 1.2rem;
       color: #94a3b8;
       font-weight: 300;
-      animation: fadeInUp 1s ease-out 0.2s both;
+      animation: fadeInUp 1s ease-out 0.4s both;
+      margin-bottom: 0.5rem;
+    }
+
+    .header .description {
+      font-size: 1rem;
+      color: #64748b;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      animation: fadeInUp 1s ease-out 0.6s both;
     }
 
     .loading {
@@ -311,6 +376,12 @@
       margin: 2rem 0;
     }
 
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -374,8 +445,16 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>QBMS Suite Releases</h1>
-      <p>Download the latest versions and updates</p>
+      <div class="logo-container">
+        <div class="logo" id="logo">
+          <div class="logo-fallback">AV</div>
+        </div>
+      </div>
+      <h1>AlphaVault QBMS</h1>
+      <p class="subtitle">Question Bank Management System</p>
+      <p class="description">
+        Developed for KIA Bengaluru Air Traffic Control training cell. AlphaVault is a complete software solution for Managing question bank and preparing question papers
+      </p>
     </div>
     
     <div id="releases">
@@ -511,8 +590,28 @@
       }
     }
     
+    // Load logo with fallback
+    function loadLogo() {
+      const logoContainer = document.getElementById('logo');
+      const logoImg = new Image();
+      
+      logoImg.onload = function() {
+        logoContainer.innerHTML = `<img src="assets/logo.png" alt="AlphaVault QBMS Logo">`;
+      };
+      
+      logoImg.onerror = function() {
+        // Keep the fallback "AV" text that's already there
+        console.log('Logo not found, using fallback design');
+      };
+      
+      logoImg.src = 'assets/logo.png';
+    }
+
     // Load releases when page loads
-    window.addEventListener('load', fetchReleases);
+    window.addEventListener('load', () => {
+      loadLogo();
+      fetchReleases();
+    });
   </script>
 </body>
 </html>
