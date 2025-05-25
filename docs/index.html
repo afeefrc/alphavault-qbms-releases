@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+.header .description {
+        font-size: 0.9rem;
+      }
+
+      .developer-info {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .dev-item {
+        font-size: 0.85rem;
+      }<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -131,9 +142,43 @@
       color: #64748b;
       font-weight: 400;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 2rem auto;
       line-height: 1.6;
       animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .developer-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 1rem;
+      animation: fadeInUp 1s ease-out 0.8s both;
+      flex-wrap: wrap;
+    }
+
+    .dev-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      transition: all 0.3s ease;
+    }
+
+    .dev-item:hover {
+      background: rgba(148, 163, 184, 0.2);
+      border-color: rgba(102, 126, 234, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .dev-item a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .loading {
@@ -238,30 +283,134 @@
 
     .release-body {
       color: #cbd5e1;
-      line-height: 1.6;
+      line-height: 1.7;
       margin-bottom: 2rem;
       font-size: 0.95rem;
     }
 
-    .release-body h1, .release-body h2, .release-body h3 {
+    .release-body h1 {
       color: #f1f5f9;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+    }
+
+    .release-body h2 {
+      color: #f1f5f9;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1.25rem 0 0.75rem 0;
+    }
+
+    .release-body h3 {
+      color: #e2e8f0;
+      font-size: 1.1rem;
+      font-weight: 500;
       margin: 1rem 0 0.5rem 0;
     }
 
+    .release-body h4, .release-body h5, .release-body h6 {
+      color: #e2e8f0;
+      font-weight: 500;
+      margin: 0.75rem 0 0.5rem 0;
+    }
+
     .release-body ul, .release-body ol {
-      margin-left: 1.5rem;
+      margin: 0.75rem 0 0.75rem 1.5rem;
+      padding-left: 0.5rem;
+    }
+
+    .release-body ul {
+      list-style: none;
+    }
+
+    .release-body ul li {
+      position: relative;
+      margin: 0.5rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .release-body ul li::before {
+      content: '•';
+      color: #667eea;
+      font-weight: bold;
+      font-size: 1.2rem;
+      position: absolute;
+      left: 0;
+      top: -0.1rem;
+    }
+
+    .release-body ol {
+      list-style: decimal;
+      list-style-position: outside;
+    }
+
+    .release-body ol li {
+      margin: 0.5rem 0;
+      padding-left: 0.25rem;
     }
 
     .release-body li {
-      margin: 0.25rem 0;
+      line-height: 1.6;
+    }
+
+    .release-body p {
+      margin: 0.75rem 0;
+      line-height: 1.7;
+    }
+
+    .release-body blockquote {
+      border-left: 3px solid #667eea;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: 0 8px 8px 0;
+      padding: 0.75rem 1rem;
+      font-style: italic;
     }
 
     .release-body code {
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.4);
+      color: #a5b4fc;
       padding: 0.2rem 0.4rem;
       border-radius: 4px;
-      font-family: 'Monaco', 'Menlo', monospace;
+      font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
       font-size: 0.875rem;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .release-body pre {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    .release-body pre code {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .release-body strong {
+      color: #f1f5f9;
+      font-weight: 600;
+    }
+
+    .release-body em {
+      color: #e2e8f0;
+      font-style: italic;
+    }
+
+    .release-body hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.3), transparent);
+      margin: 2rem 0;
     }
 
     .release-actions {
@@ -453,9 +602,25 @@
       <h1>AlphaVault QBMS</h1>
       <p class="subtitle">Question Bank Management System</p>
       <p class="description">
-        Developed for KIA Bengaluru Air Traffic Control training cell. 
-        AlphaVault is a complete software solution for Managing question bank and preparing question papers
+        Developed for KIA Bengaluru Air Traffic Control training cell. AlphaVault is a complete software solution for Managing question bank and preparing question papers
       </p>
+      <p class="description">
+        For more details contact VOBL Training cell or Developer
+      </p>
+      <div class="developer-info">
+        <div class="dev-item">
+          <span>👨‍💻</span>
+          <span>Developed by <strong>Afeef Rahiman C</strong></span>
+        </div>
+        <!-- <div class="dev-item">
+          <span>🚀</span>
+          <a href="https://github.com/afeefrc" target="_blank">GitHub Profile</a>
+        </div>
+        <div class="dev-item">
+          <span>📦</span>
+          <a href="https://github.com/afeefrc/qbms-suite-releases" target="_blank">Repository</a>
+        </div> -->
+      </div>
     </div>
     
     <div id="releases">
@@ -487,15 +652,140 @@
     function formatReleaseBody(body) {
       if (!body) return '<p>No release notes available.</p>';
       
-      // Convert markdown-like formatting to HTML
-      return body
+      // Split into lines for processing
+      const lines = body.split('\n');
+      let html = '';
+      let inCodeBlock = false;
+      let inList = false;
+      let listType = '';
+      
+      for (let i = 0; i < lines.length; i++) {
+        let line = lines[i];
+        
+        // Handle code blocks
+        if (line.startsWith('```')) {
+          if (inCodeBlock) {
+            html += '</code></pre>\n';
+            inCodeBlock = false;
+          } else {
+            html += '<pre><code>';
+            inCodeBlock = true;
+          }
+          continue;
+        }
+        
+        if (inCodeBlock) {
+          html += line + '\n';
+          continue;
+        }
+        
+        // Handle headings
+        if (line.startsWith('# ')) {
+          html += `<h1>${line.substring(2)}</h1>\n`;
+          continue;
+        }
+        if (line.startsWith('## ')) {
+          html += `<h2>${line.substring(3)}</h2>\n`;
+          continue;
+        }
+        if (line.startsWith('### ')) {
+          html += `<h3>${line.substring(4)}</h3>\n`;
+          continue;
+        }
+        if (line.startsWith('#### ')) {
+          html += `<h4>${line.substring(5)}</h4>\n`;
+          continue;
+        }
+        
+        // Handle horizontal rules
+        if (line.trim() === '---' || line.trim() === '***') {
+          html += '<hr>\n';
+          continue;
+        }
+        
+        // Handle blockquotes
+        if (line.startsWith('> ')) {
+          html += `<blockquote>${line.substring(2)}</blockquote>\n`;
+          continue;
+        }
+        
+        // Handle unordered lists
+        if (line.match(/^[\s]*[-*+]\s+/)) {
+          if (!inList || listType !== 'ul') {
+            if (inList && listType === 'ol') html += '</ol>\n';
+            html += '<ul>\n';
+            inList = true;
+            listType = 'ul';
+          }
+          const content = line.replace(/^[\s]*[-*+]\s+/, '');
+          html += `<li>${formatInlineMarkdown(content)}</li>\n`;
+          continue;
+        }
+        
+        // Handle ordered lists
+        if (line.match(/^[\s]*\d+\.\s+/)) {
+          if (!inList || listType !== 'ol') {
+            if (inList && listType === 'ul') html += '</ul>\n';
+            html += '<ol>\n';
+            inList = true;
+            listType = 'ol';
+          }
+          const content = line.replace(/^[\s]*\d+\.\s+/, '');
+          html += `<li>${formatInlineMarkdown(content)}</li>\n`;
+          continue;
+        }
+        
+        // Close lists if we're not in a list item anymore
+        if (inList && line.trim() !== '' && !line.match(/^[\s]*[-*+\d]/)) {
+          html += listType === 'ul' ? '</ul>\n' : '</ol>\n';
+          inList = false;
+          listType = '';
+        }
+        
+        // Handle empty lines
+        if (line.trim() === '') {
+          if (inList) {
+            // Don't close list on empty lines within lists
+            continue;
+          } else {
+            html += '\n';
+            continue;
+          }
+        }
+        
+        // Handle regular paragraphs
+        if (!inList) {
+          html += `<p>${formatInlineMarkdown(line)}</p>\n`;
+        }
+      }
+      
+      // Close any open lists
+      if (inList) {
+        html += listType === 'ul' ? '</ul>\n' : '</ol>\n';
+      }
+      
+      // Close any open code blocks
+      if (inCodeBlock) {
+        html += '</code></pre>\n';
+      }
+      
+      return html;
+    }
+    
+    function formatInlineMarkdown(text) {
+      return text
+        // Bold text
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/__(.*?)__/g, '<strong>$1</strong>')
+        // Italic text
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
-        .replace(/`(.*?)`/g, '<code>$1</code>')
-        .replace(/\n\n/g, '</p><p>')
-        .replace(/\n/g, '<br>')
-        .replace(/^/, '<p>')
-        .replace(/$/, '</p>');
+        .replace(/_(.*?)_/g, '<em>$1</em>')
+        // Inline code
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        // Links
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+        // Strike-through
+        .replace(/~~(.*?)~~/g, '<del>$1</del>');
     }
 
     async function fetchReleases() {
